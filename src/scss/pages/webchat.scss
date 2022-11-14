@@ -1,0 +1,96 @@
+.webchatBtn {
+  position: absolute;
+  right: 0;
+  bottom: 5%;
+}
+
+.webchatBtn label {
+  display: block;
+}
+@media all and (min-width: 600px) {
+  .webchatWindow {
+    width: 600px;
+  }
+}
+@media all and (max-width: 599px) {
+  .webchatWindow {
+    width: 100%;
+  }
+}
+
+.webchatWindow {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: #e3e2e2;
+}
+
+.webchatWindow h1 {
+  font-size: 18px;
+  color: white;
+  background-color: $basic-button-color;
+  padding: 15px 20px;
+}
+
+.webchatWindow .btn-row,
+.webchatWindow .group,
+.webchatWindow h2 {
+  margin: 15px 20px;
+}
+
+.webchatWindow .row {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.webchatWindow .row > * {
+  width: auto;
+}
+
+.webchatWindow .attachment {
+  background-color: $content-background-color;
+  padding: 2px 5px;
+  width: fit-content;
+  margin: 0 5px 5px 0;
+  display: inline-block;
+}
+
+.webchatWindow .message {
+  text-align: end;
+}
+
+.webchatWindow .message.warning {
+  color: red;
+}
+
+.webchatWindow .comment {
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.webchatWindow .comment:last-of-type {
+  margin-bottom: 0;
+}
+
+.webchatWindow .comment label,
+.webchatWindow .comment span {
+  padding: 0 !important;
+}
+
+.webchatWindow .comment span {
+  color: #838383;
+}
+
+.webchatWindow .comments {
+  max-height: 217px;
+  overflow-y: scroll;
+  padding: 0 20px;
+  margin-top: 20px;
+}
+
+.webchatWindow .errors {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}

@@ -1,0 +1,106 @@
+.col-form-label {
+  font: $font-label;
+  color: $color-label;
+  line-height: 16px;
+  padding-top: 8px;
+  padding-bottom: none;
+}
+
+.col-form-label-3 {
+  font: $font-info-text;
+  color: $color-label;
+  line-height: 16px;
+  padding-top: 8px;
+  padding-bottom: none;
+}
+
+.form-control {
+  font: $font-value;
+  color: $color-value;
+  border-radius: 0px;
+  box-shadow: none;
+  height: 30px; //calc(1.5em + .75rem + 4px);
+  border: $main-border;
+  outline: none;
+  background-color: white;
+  width: 100%;
+}
+
+.form-control-secondary {
+  font: $font-value;
+  color: $color-value;
+  border-radius: 0px;
+  box-shadow: none;
+  height: 30px; //calc(1.5em + .75rem + 4px);
+  border: $secondary-border;
+  outline: none;
+}
+
+.form-control:disabled {
+  background-color: inherit;
+  border: none;
+  cursor: default;
+}
+
+.form-control:focus,
+.form-control-secondary:focus {
+  box-shadow: none;
+  border-width: 1px;
+  border-color: $basic-button-color;
+}
+
+.form-control-warning:focus {
+  box-shadow: none;
+  border-width: 1px;
+  border-color: red;
+}
+
+//Input
+
+.medium-input {
+  font-size: 2rem;
+  height: auto;
+}
+
+.large-input {
+  font-size: 3.5rem;
+  height: auto;
+}
+
+.placeholder-highlight {
+  ::placeholder {
+    color: red;
+  }
+}
+
+.input-error {
+  border-color: #f19a9aed;
+  border-width: 1px;
+}
+
+.required {
+  border: 1px solid red;
+}
+
+.warning-big {
+  color: red;
+  font-size: 15px;
+}
+
+.hidden-input {
+  background-color: inherit;
+  border-width: 1px;
+  border-color: transparent;
+  border-radius: 0px;
+  box-shadow: none;
+  width: 100%;
+  font: $font-value;
+  color: $color-value;
+}
+
+.hidden-input:focus {
+  background-color: white;
+  color: inherit;
+  border-color: $basic-button-color;
+  box-shadow: none !important;
+}

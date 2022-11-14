@@ -1,0 +1,94 @@
+p {
+  margin-bottom: 0;
+}
+
+body {
+  font-family: $main-font;
+  background: none transparent;
+  font-size: $main-font-size;
+  color: $main-font-color;
+}
+
+html {
+  overflow-y: hidden;
+}
+
+h1 {
+  color: $main-font-color;
+  font-size: 2rem;
+}
+
+h2 {
+  color: $main-font-color;
+  font-size: 1.5rem;
+  font-family: Segoe UI Light;
+}
+
+h2.clickable:hover {
+  color: $basic-button-color;
+}
+
+h3 {
+  font-family: Segoe UI Light;
+}
+
+h4 {
+  font-family: Segoe UI Semibold;
+}
+//Label
+Label {
+  font: $font-label;
+  color: $color-label;
+}
+
+.label {
+  border-radius: 0;
+  background-color: $basic-button-color;
+  font: $font-label;
+  color: $color-label;
+}
+
+.label-event {
+  background-color: inherit;
+  color: rgb(155, 155, 155);
+}
+
+.label-info {
+  font: $font-info-text;
+  color: white;
+  display: inline;
+  padding: 0.1em 0.3em;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+}
+
+.attribute-label {
+  color: $muted-font-color !important;
+}
+
+hr {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.nav-item {
+  background-color: inherit;
+  cursor: pointer;
+}
+
+.nav-link {
+  background-color: inherit;
+  border: none;
+  color: #333!important;
+  padding: 2px 0 5px 2px;
+}
+
+.nav-link.active {
+  background-color: inherit !important;
+  border: none;
+  border-bottom: 1px solid #0078d4!important;
+  font-family: Segoe UI Semibold;
+  font-weight: 600;
+}
