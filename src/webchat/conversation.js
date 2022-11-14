@@ -10,6 +10,14 @@ import {
 import {
   useTranslation
 } from "react-i18next";
+import Select from 'react-select';
+import {
+  pickSelectStyle
+} from "configs/components/select";
+import {
+  languages
+} from "configs/constants";
+import i18n from "i18next";
 
 import {
   formatDistanceToNow,
@@ -34,6 +42,8 @@ export default function WebChatConversation(props) {
   const [errors, setErrors] = React.useState([]);
   const [saving, setSaving] = React.useState(false);
 
+  const [language, setLanguage] = React.useState(languages[0]);
+
   useEffect(() => {
     var elem = document.getElementById('comments');
     elem.scrollTop = elem.scrollHeight;
@@ -41,7 +51,18 @@ export default function WebChatConversation(props) {
 
   return (
     <div>
-      <h1>{t('webChatSupport')}</h1>
+      <div className="header">
+        <h1>{t('webChatSupport')}</h1>
+        <Select
+          styles={pickSelectStyle()}
+          options={languages}
+          value={language}
+          onChange={lang => {
+            setLanguage(lang);
+            i18n.changeLanguage(lang.value);
+          }}
+        />
+      </div>
       <div className="form">
         <div className="comments" id="comments">
           <div
@@ -64,14 +85,28 @@ export default function WebChatConversation(props) {
           {messages.map((message) => (
             <div
               key={message.id}
-              className={classnames("comment", { 'm-l-20': !message.fromCustomer, 'm-r-20': message.fromCustomer })}
+              className={classnames("comment", { 'm-l-20': message.fromCustomer, 'm-r-20': !message.fromCustomer })}
               style={{ backgroundColor: message.fromCustomer ? "#d5ebd4" : "#d3dfe8" }}
             >
-              <div className="row p-l-10 p-r-10">
-                <Label>{message.fromCustomer ? conversation.fullName : t('support')}</Label>
-                <span>{`${formatDistanceToNow(parseInt(message.createdAt))} ago`}</span>
+              <div className="row">
+                <div className="icon">
+                  {
+                    message.fromCustomer &&
+                    <i className="fa fa-solid fa-user" />
+                  }
+                  {
+                    !message.fromCustomer &&
+                    <i className="fa fa-solid fa-headset" />
+                  }
+                </div>
+                <div style={{ width: "calc(100% - 40px)", paddingLeft: "0px" }}>
+                  <div className="row p-l-10 p-r-10">
+                    <Label>{message.fromCustomer ? `${conversation.fullName} (${t('you')})` : t('support')}</Label>
+                    <span>{`${formatDistanceToNow(parseInt(message.createdAt))} ago`}</span>
+                  </div>
+                  {message.message}
+                </div>
               </div>
-              {message.message}
             </div>
           ))}
           {!conversation.active &&

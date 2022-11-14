@@ -7,6 +7,14 @@ import {
 import {
   useTranslation
 } from "react-i18next";
+import Select from 'react-select';
+import {
+  pickSelectStyle
+} from "configs/components/select";
+import {
+  languages
+} from "configs/constants";
+import i18n from "i18next";
 
 import {
   isEmail
@@ -29,12 +37,25 @@ export default function WebChatForm(props) {
 
   const [errors, setErrors] = React.useState([]);
 
+  const [language, setLanguage] = React.useState(languages[0]);
+
   return (
     <div>
-      <h1>{t('webChatSupport')}</h1>
+      <div className="header">
+        <h1>{t('webChatSupport')}</h1>
+        <Select
+          styles={pickSelectStyle()}
+          options={languages}
+          value={language}
+          onChange={lang => {
+            setLanguage(lang);
+            i18n.changeLanguage(lang.value);
+          }}
+        />
+      </div>
       <div className="form">
         <FormGroup className="group">
-          <Label for="name">{t('yourName')}</Label>
+          <Label for="name">{`${t('yourName')} *`}</Label>
           <Input
             type="text"
             name="name"
@@ -45,7 +66,7 @@ export default function WebChatForm(props) {
           />
         </FormGroup>
         <FormGroup className="group">
-          <Label for="email">{`${t('yourEmail')}`}</Label>
+          <Label for="email">{`${t('yourEmail')} *`}</Label>
           <Input
             type="text"
             name="email"
@@ -57,7 +78,7 @@ export default function WebChatForm(props) {
         </FormGroup>
         <FormGroup className="group">
           <div>
-            <Label for="description">{t('taskDescription')}</Label>
+            <Label for="description">{`${t('taskDescription')} *`}</Label>
           </div>
 
           <Input
@@ -69,7 +90,7 @@ export default function WebChatForm(props) {
             onChange={(e) => setDescription(e.target.value)}
           />
         </FormGroup>
-        <div className="row btn-row">
+        <div className="row btn-row" style={{ justifyContent: "flex-end" }}>
           {
             errors.length > 0 &&
             <div className="errors">

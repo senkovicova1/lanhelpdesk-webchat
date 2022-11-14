@@ -25,11 +25,19 @@
   background-color: #e3e2e2;
 }
 
+.webchatWindow .header {
+  padding: 15px 20px;
+  background-color: $basic-button-color;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .webchatWindow h1 {
   font-size: 18px;
   color: white;
-  background-color: $basic-button-color;
-  padding: 15px 20px;
+  margin-bottom: 0;
+  line-height: 30px;
 }
 
 .webchatWindow .btn-row,
