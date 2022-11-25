@@ -65,23 +65,25 @@ export default function WebChatConversation(props) {
       </div>
       <div className="form">
         <div className="comments" id="comments">
-          <div
-            key="link-message"
-            className="comment bolder color-white font-15-f"
-            style={{ backgroundColor: "#FFAC1C" }}
-          >
-            {t('yourLinkToChatIs')}
-            <br />
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href={`${window.location.origin}/webchat/${webchatId}`}
+          {false &&
+            <div
+              key="link-message"
+              className="comment bolder color-white font-15-f"
+              style={{ backgroundColor: "#FFAC1C" }}
             >
-              {`${window.location.origin}/webchat/${webchatId}`}
-            </a>
-            <br />
-            {t('pleaseStoreAndOpenItToContinueLater')}
-          </div>
+              {t('yourLinkToChatIs')}
+              <br />
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href={`${window.location.origin}/webchat/${webchatId}`}
+              >
+                {`${window.location.origin}/webchat/${webchatId}`}
+              </a>
+              <br />
+              {t('pleaseStoreAndOpenItToContinueLater')}
+            </div>
+          }
           {messages.map((message) => (
             <div
               key={message.id}
